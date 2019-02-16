@@ -10,8 +10,8 @@ public class Taller4 {
     /**
     * Metodo auxiliar para llamar el metodo hayCaminoDFS posterior
     * @param g grafo dado 
-    * @param v vertices 
-    * @param w vertice
+    * @param o vertices 
+    * @param d vertice
     * @return true si hay camino, false de lo contrario
     */
     public static boolean hayCamino(Digraph g, int o, int d){
@@ -22,8 +22,8 @@ public class Taller4 {
     /**
     * Metodo que recorre el grafo por medio de dfs 
     * @param g grafo dado 
-    * @param v vertices 
-    * @param w vertice
+    * @param o vertices 
+    * @param d vertice
     * @param visitados ayuda a tener un conteo acerca de que nodos han sido
     * o no visitados
     * @return true si hay camino, false de lo contrario
@@ -43,29 +43,31 @@ public class Taller4 {
         return false;
     }
  
-  
-     /**
-    * Metodo que recorre el grafo por medio de dfs teniendo en cuenta que
-    * se quiere encontrar el de menor costo
+  	   /**
+    * Metodo auxiliar que llama al metodo recorrido posterior
+    * con cada uno de los vertices
     * @param g grafo dado 
-    * @param inicio nodo desde el cual empieza el recorrido 
-    * @param fin nodo donde termina el recorrido
-    * @return cual es el costo que tiene ir desde inicio a fin
+     * @param o nodo desde el cual empieza el recorrido 
+    * @param d nodo donde termina el recorrido
+    * @return cual es el costo que tiene
     */
+   
 
     public static int hayCamino2(Digraph g, int o, int d){
         boolean[] visitados = new boolean[g.size()];    
         return hayCaminoAux2(g, o, d, visitados);
     }
-	   /**
-    * Metodo auxiliar que llama al metodo recorrido posterior
-    * con cada uno de los vertices
+  /**
+    * Metodo que recorre el grafo por medio de dfs teniendo en cuenta que
+    * se quiere encontrar el de menor costo
     * @param g grafo dado 
-    * @return cual es el costo que tiene
+    * @param o nodo desde el cual empieza el recorrido 
+    * @param d nodo donde termina el recorrido
+    * @return cual es el costo que tiene ir desde inicio a fin
     */
     private static int hayCaminoAux2(Digraph g, int o, int d, boolean[] visitados) { 
         visitados[o] = true;
-        int costoMinimo = 900;
+        int costoMinimo = 1000000;
                  int costoCamino=0;
         if (o == d){
         visitados[o] = false;

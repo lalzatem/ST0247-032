@@ -94,46 +94,4 @@ public class Taller4 {
     }
  
 
-
-    /**
-    * Metodo que recorre todo el grafo con la intencion de buscar un
-    * camino que represente el menor costo pasando por todos los vertices exactamente
-    * una vez y vuelva al nodo inicial
-    * @param g grafo dado 
-    * @param v vertice inicial
-    * @param unvisited arreglo de nodos aun no visitados
-    * @return cual es el costo que tiene
-    */
-    private static int recorrido(Digraph g, int o,int c, boolean[] unvisited) {
-     
-        unvisited[c] = true;
-        int costoMinimo = 900;
-                 int costoCamino=0;
-        if (o == g.size()){
-        unvisited[o] = false;
-           return 0;
-        }
-        else{
-           ArrayList<Integer> hijos = g.getSuccessors(o);          
-                try{
-                for (Integer hijo: hijos){
-                if (!unvisited[hijo]){
-                  costoCamino =g.getWeight(o,hijo)+ hayCaminoAux2(g, hijo, c+1, unvisited);
-                  
-                   if (costoCamino < costoMinimo)
-                             { costoMinimo = costoCamino;}
-                }
-              
-              
-        
-    
-        }}
-    catch(Exception e){}
-}
-          return costoMinimo;  
-    }
-    public int[] hola(int[] v,int posicion){
-    v[posicion]=0;
-    return v;
-    }
 }
